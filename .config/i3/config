@@ -13,13 +13,15 @@
 # exec --no-startup-id chromium
 # start even at reload
 # exec_always ~/my_script.sh
-exec --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
+exec --no-startup-id lxsession --no-autostart
+exec --no-startup-id feh --no-fehbg --bg-scale ~/.config/wallpaper.jpg
 exec --no-startup-id picom
 exec --no-startup-id polybar --config=.config/polybar/config HDMI
 exec --no-startup-id nm-applet
 exec --no-startup-id flameshot
 exec --no-startup-id pasystray
-# exec --no-startup-id steam -silent
+exec --no-startup-id discord --start-minimized
+exec --no-startup-id steam -Silent
 
 ## ======================================================
 ## hotkeys - custom
