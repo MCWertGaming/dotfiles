@@ -32,6 +32,7 @@ bindsym $mod+n exec code # code for notes etc
 bindsym $mod+c exec code-insiders # code for development with container workspaces
 bindsym $mod+k exec gitkraken
 bindsym $mod+d exec discord
+bindsym $mod+s exec steam
 
 ## ======================================================
 ## visuals
