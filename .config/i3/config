@@ -53,6 +53,8 @@ assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|E
 for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
 for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
+for_window [class=Steam title="Friends List"] floating enable
+for_window [class=Steam title="Steam Guard - Computer Authorization Required"] floating enable
 
 ## ======================================================
 ## hotkeys - predefined
