@@ -33,6 +33,7 @@ bindsym $mod+c exec code-insiders # code for development with container workspac
 bindsym $mod+k exec gitkraken
 bindsym $mod+d exec discord
 bindsym $mod+t exec steam
+bindsym $mod+m exec multimc
 
 ## ======================================================
 ## visuals
