@@ -26,7 +26,6 @@ decoration = #F56416
 green = #27AE60
 red = #E74C3C
 blue = #3498DB
-grey =
 
 ; ====
 ; Bars
@@ -45,7 +44,8 @@ font-0 = Noto Mono:pixelsize=11;3
 
 background = ${colors.background}
 
-modules-left = left-seperation i3-workspaces
+modules-left = left-separation i3-workspaces
+modules-right = cpu separation battery separation backlight right-separation
 
 tray-position = left
 tray-padding = 4
@@ -57,15 +57,21 @@ border-bottom-color = ${colors.decoration}
 ; deco
 ; ====
 
-[module/left-seperation]
+[module/left-separation]
 type = custom/text
 content = "| "
 ; content-font = 2
 content-foreground = ${colors.decoration}
 
-[module/seperation]
+[module/separation]
 type = custom/text
 content = " | "
+; content-font = 2
+content-foreground = ${colors.decoration}
+
+[module/right-separation]
+type = custom/text
+content = " |- "
 ; content-font = 2
 content-foreground = ${colors.decoration}
 
@@ -92,3 +98,110 @@ label-unfocused-foreground = ${colors.blue}
 label-urgent-font = 3
 label-urgent-foreground = ${colors.red}
 
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; by default users have no write access to /sys/class/backlight/intel_backlight/brightness
+; run `ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="acpi_video0", GROUP="video", MODE="0664"`
+; and add your user to the video group `usermod -a -G video <user>`
+enable-scroll = true
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <label>
+
+; Available tokens:
+;   %percentage% (default)
+label = Bright: %percentage%%
+label-foreground = ${colors.blue}
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 96
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-full = <label-full>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = Bat: %percentage%% +
+label-charging-foreground = ${colors.green}
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = Bat: %percentage%% -
+label-discharging-foreground = ${colors.red}
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = Bat: Full
+label-full-foreground = ${colors.blue}
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label = CPU: %percentage%%
