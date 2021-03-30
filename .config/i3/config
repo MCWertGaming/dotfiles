@@ -21,6 +21,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id pasystray
 exec --no-startup-id discord --start-minimized
 exec --no-startup-id steam -Silent
+exec --no-startup-id unityhub --silent
 
 ## .=================================================.
 ## | hotkeys - custom                                |
@@ -29,12 +30,15 @@ exec --no-startup-id steam -Silent
 # apps
 bindsym $mod+Return exec kitty
 bindsym $mod+b exec brave
-bindsym $mod+n exec code # code for notes etc
+bindsym $mod+n exec boostnote
 bindsym $mod+c exec code-insiders # code for development with container workspaces
 bindsym $mod+k exec gitkraken
 bindsym $mod+d exec discord
 bindsym $mod+t exec steam
 bindsym $mod+m exec multimc
+bindsym $mod+u exec unityhub
+bindsym $mod+l exec blender
+bindsym $mod+j exec clion
 
 ## .=================================================.
 ## | window rules - custom                           |
@@ -50,17 +54,22 @@ assign [class=gitkraken] 4
 for_window [class=feh] floating enable
 for_window [class=Steam title="Friends List"] floating enable
 for_window [class=Steam title="Steam Guard - Computer Authorization Required"] floating enable
+for_window [class=jetbrains-clion title="win0"] floating enable
+for_window [class=jetbrains-clion title="CLion Evaluation"] floating enable
+for_window [class=Blender title="Blender Preferences"] floating enable
 
 ## .=================================================.
 ## | visuals - custom                                |
 ## '================================================='
 
+# gaps
 gaps outer 10
 gaps inner 10
 
 # remove borders
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border none
 
+# font
 font pango:monospace 8
 
 ## .=================================================.
