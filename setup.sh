@@ -17,33 +17,33 @@ DEFAULT_CONFIG_PATH=${DORFILES_PATH}/.setup/default.conf
 ## place symlinks
 # ccache
 rm -f ~/.ccache/ccache.conf
-ln -s $DOTFILES_PATH/.ccache/ccache.conf ~/.ccache/ccache.conf
+cp $DOTFILES_PATH/.ccache/ccache.conf ~/.ccache/ccache.conf
 # flameshot
 rm -f ~/.config/flameshot/flameshot.ini
-ln -s $DOTFILES_PATH/.config/flameshot/flameshot.ini ~/.config/flameshot/flameshot.ini
+cp $DOTFILES_PATH/.config/flameshot/flameshot.ini ~/.config/flameshot/flameshot.ini
 # i3-gaps
 rm -f ~/.config/i3/config
-ln -s $DOTFILES_PATH/.config/i3/config ~/.config/i3/config
+cp $DOTFILES_PATH/.config/i3/config ~/.config/i3/config
 # kitty
 rm -f ~/.config/kitty/kitty.conf
 ln -s $DOTFILES_PATH/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 # neofetch
 rm -f ~/.config/neofetch/config.conf
-ln -s $DOTFILES_PATH/.config/neofetch/config.conf ~/.config/neofetch/config.conf
+cp $DOTFILES_PATH/.config/neofetch/config.conf ~/.config/neofetch/config.conf
 # picom
 rm -f ~/.config/picom.conf
-ln -s $DOTFILES_PATH/.config/picom.conf ~/.config/picom.conf
+cp $DOTFILES_PATH/.config/picom.conf ~/.config/picom.conf
 # wallpaper
 rm -f ~/.config/wallpaper.jpg
-ln -s $DOTFILES_PATH/.config/wallpaper.jpg ~/.config/wallpaper.jpg
+cp $DOTFILES_PATH/.config/wallpaper.jpg ~/.config/wallpaper.jpg
 
 ## caching directories
 # user cache
-rm -rf ~/.cache/
-ln -s ~/.cache /tmp
+rm -rf ~/.cache
+ln -s /tmp ~/.cache
 # cargo cache
-rm -rf ~/.cargo/
-ln -s ~/.cargo /tmp
+rm -rf ~/.cargo
+ln -s /tmp ~/.cargo
 # ccache tmp
-rm -rf ~/.ccache/tmp/
-ln -s ~/.ccache/tmp /tmp
+rm -rf ~/.ccache/tmp
+ln -s /tmp ~/.ccache/tmp
